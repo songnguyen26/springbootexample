@@ -1,7 +1,7 @@
 package com.songnguyen.example05.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
-    private static final long serialVerionUID=1L;
+    private static final long serialVersionUID=1L;
     String resourceName;
     String field;
     String fieldName;

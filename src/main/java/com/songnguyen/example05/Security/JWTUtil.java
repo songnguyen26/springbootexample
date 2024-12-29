@@ -15,17 +15,17 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 @Component
 public class JWTUtil {
     @Value("${jwt_secret}")
-    private String secrect;
+    private String secret;
     public String generateToken(String email) throws IllegalArgumentException,JWTCreationException{
         return JWT.create()
                 .withSubject("User Details")
                 .withClaim("email", email)
                 .withIssuedAt(new Date())
                 .withIssuer("Event Scheduler")
-                .sign(Algorithm.HMAC256(secrect));
+                .sign(Algorithm.HMAC256(secret));
     }
     public String validateTokenAndRetriveSubject(String token) throws JWTVerificationException{
-        JWTVerifier verifier=JWT.require(Algorithm.HMAC256(secrect))
+        JWTVerifier verifier=JWT.require(Algorithm.HMAC256(secret))
                                     .withSubject("User Details")
                                     .withIssuer("Even scheduler").build();
         DecodedJWT jwt= verifier.verify(token);

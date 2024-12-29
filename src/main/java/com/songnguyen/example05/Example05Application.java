@@ -18,7 +18,8 @@ import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 
 @SpringBootApplication
-@SecurityScheme(name = "E-commerce Application",scheme = "beaer",type = SecuritySchemeType.HTTP,in = SecuritySchemeIn.HEADER)
+@SecurityScheme(name = "E-commerce Application",scheme = "Bearer",type = SecuritySchemeType.HTTP,
+in = SecuritySchemeIn.HEADER)
 public class Example05Application implements CommandLineRunner {
 	@Autowired
 	private RoleRepo roleRepo;
